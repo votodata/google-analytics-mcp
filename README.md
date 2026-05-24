@@ -1,3 +1,39 @@
+# google-analytics-mcp
+
+Fork local do servidor MCP experimental de Google Analytics mantido na org
+`votodata`. Ele permite consultar propriedades GA4 por ferramentas compatíveis
+com MCP, sem acoplar essa integração diretamente aos apps VotoData.
+
+## Papel no VotoData
+
+- Consultar contas, propriedades, dimensoes, metricas e relatorios GA4.
+- Apoiar auditoria de funil dos dominios VotoData sem criar servico proprio.
+- Manter o codigo Python isolado do monorepo principal e dos workers Rust.
+
+## Stack local
+
+- Python 3.10+
+- Pacote `analytics-mcp`
+- Google Analytics Admin API
+- Google Analytics Data API
+- Autenticacao via Application Default Credentials
+
+## Desenvolvimento rapido
+
+```bash
+python -m pip install -e .
+python -m unittest discover -s tests -p "*_test.py"
+python -m analytics_mcp.server
+```
+
+## Upstream
+
+Este README preserva abaixo as instrucoes do projeto base do Google Analytics
+MCP. Ao atualizar a dependencia upstream, confira tambem `pyproject.toml`,
+`analytics_mcp/` e `tests/`.
+
+---
+
 # Google Analytics MCP Server (Experimental)
 
 [![PyPI version](https://img.shields.io/pypi/v/analytics-mcp.svg)](https://pypi.org/project/analytics-mcp/)
